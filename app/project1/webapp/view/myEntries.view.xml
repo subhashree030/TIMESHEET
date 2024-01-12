@@ -1,0 +1,197 @@
+<mvc:View controllerName="timesheet.com.project1.controller.myEntries"
+   
+   xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:u="sap.ui.unified" >
+	<VBox>
+    	<ScrollContainer
+		height="500px"
+		vertical="true"
+		focusable="false">
+          <ObjectHeader
+        icon="{/image}"
+        iconDensityAware="false"
+       class="header-size"
+        imageShape="Circle"
+        responsive="true"
+        title="{/UserName}"
+        intro="{/Position}">
+            <ObjectAttribute title="ID" text="{/ID}" active="true" />
+            <ObjectAttribute title="Email" text="{/Email}" />
+    </ObjectHeader>
+   
+     <f:Card width="490px" height="445px">
+          <f:header>
+            <card:Header
+                title="My Calender"
+                subtitle="Up to date yourself"/>
+                  <!-- <Image src="./Images/icons/calendar.gif" height="100px"/> -->
+        </f:header>
+        <f:content>
+               <!-- <ScrollContainer height="250px" vertical="true" horizontal="false" width="100%"> -->
+            <!-- <l:VerticalLayout>
+            <u:Calendar showWeekNumbers="false" width="487px"
+                id="calendar"
+                select="handleCalendarSelected"/>
+                <u:CalendarLegend id="legend1" width="487px"/>
+            </l:VerticalLayout> -->
+             	<l:VerticalLayout>
+			<u:Calendar id="calendar" select="handleDateSelect" intervalSelection="false"  width="30rem">
+             <u:specialDates>
+            <u:DateTypeRange startDate="{/specialDates/startDate}" endDate="{/specialDates/endDate}" type="Type01" tooltip="{/specialDates/tooltip}" />
+        </u:specialDates>
+            </u:Calendar>
+			<u:CalendarLegend id="legend"  width="480px"/>
+		</l:VerticalLayout>     <!-- </ScrollContainer> -->
+        </f:content>
+        
+    </f:Card>
+   
+        <f:Card  width="965px" height="445px" class="carddetails">
+          <f:header>
+            <card:Header
+                title="Enter Your Today Task"
+                subtitle="Up to Date yourself"/>
+                <!-- <Image src="./Images/icons/myentries.gif"  class="entriesImg"  /> -->
+    
+        </f:header>
+        <f:content>
+       
+            
+            <VBox >
+             
+    <form:SimpleForm  width="950px"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false">
+            <form:content width="950px">
+                 <!-- new changes 09-11-23 -->
+                    <Label text="Emp ID" required="true" />
+               <Input id="Empid" value="{/ID}" liveChange="onFilterChange"/>
+                <!-- new changes 09-11-23 -->
+                   <!-- <Label text="S.L No" required="true"/>
+                <Input id="slno" placeholder="Enter your ID" value="{/slno}" />  -->
+                   
+                   <Label text="Date" required="true" />
+                <DatePicker id="fdate" value="{/date}" />
+               
+               
+
+                <Label text="No Of Hour" required="true"/>
+                <Input type="Number" placeholder="Enter No Of Hour" value="" id="TP1"/> 
+               
+                <!-- <TimePicker id="TP1" change="handleChange" input="handleInput" formatPattern="HH:mm:ss"></TimePicker> -->
+
+                  <Label text="Project" required="true"/>
+                <Select id="leave" selectedKey="{/selectedLeaveKey}">
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Project1" key="Project1" />
+                   <core:Item text="Project2" key="Project2" />
+                   <core:Item text="Project3" key="Project3" />
+                </items>
+                </Select>
+
+                <Label text="Task" required="true" />
+                <Input id="EmpName" placeholder="Enter your Task" value="{/EmpName}" />
+                <Label text="SubTask" />
+                <Input id="EmpID" placeholder="Enter your " value="{/EmpID}">
+                </Input>
+              
+               <Label text="Status" required="true"/>
+               <Select id="status" >
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Pending" key="Pending" />
+                   <core:Item text="In Progress" key="In Progress" />
+                   <core:Item text="Completed" key="Completed" />
+                </items>
+                </Select>
+              
+                <Label text="Task Description" />
+                <TextArea id="description" placeholder="Add some extra text"/>
+                 
+            </form:content>
+
+             
+    </form:SimpleForm>
+    <Bar >
+                     <contentRight>
+                        <Button text="Save" type="Emphasized" press="onApplyButtonPress"></Button>
+                        <Button text="Cancel" type="Reject" press="onCancelPress"></Button>
+                     </contentRight>
+                </Bar>
+                
+</VBox>
+
+ </f:content>
+</f:Card>
+<VBox class="table-data">
+<Table id="leaveTable" items="{myEntriesModel>/}">
+    <columns>
+      <Column>
+            <Text text="S.L NO"/>
+        </Column>
+        <Column>
+            <Text text="Date"/>
+        </Column>
+        <Column>
+            <Text text="No.Hour"/>
+        </Column>
+        <Column>
+            <Text text="Project"/>
+        </Column>
+        <Column>
+            <Text text="Task"/>
+        </Column>
+        <Column>
+            <Text text="Sub Task"/>
+        </Column>
+        <Column>
+            <Text text="Description"/>
+        </Column>
+        <Column>
+            <Text text="Status"/>
+        </Column>
+        <Column width="70px">
+           <Text text="Actions" />
+      </Column>
+        <Column width="60px">
+           <Text text="" />
+      </Column>
+    </columns>
+    <items>
+        <ColumnListItem>
+            <cells>
+             <Text text="{myEntriesModel>slNo}"/>
+                 <Text text="{myEntriesModel>Date}"/>
+                <Text text="{myEntriesModel>noOfHours}"/>
+                <Text text="{myEntriesModel>Project}"/>
+                <Text text="{myEntriesModel>Task}"/>
+                <Text text="{myEntriesModel>SubTask}"/>
+                <Text text="{myEntriesModel>TaskDescription}"/>
+                <ProgressIndicator id="progressIndicator" displayValue="{myEntriesModel>Status}" />
+                <Button icon="sap-icon://edit" press="onEditMyEntries" />
+                 <Button icon="sap-icon://delete" press="onDeleteMyEntries" />
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
+    </VBox >    
+		</ScrollContainer>
+	</VBox>
+   
+</mvc:View>

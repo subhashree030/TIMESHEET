@@ -1,0 +1,141 @@
+<mvc:View controllerName="timesheet.com.project1.controller.admin"
+          xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+          xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" >
+
+	<SplitApp id="SplitAppDemo">
+       <detailPages>
+       <Page title="Hiiii, Admin !">
+ 
+       </Page>
+			<Page
+				id="detail"
+				title="Task Entry Details"
+				backgroundDesign= "Solid"
+                showNavButton="true"
+                navButtonPress=".onPressDetailonBack">
+<Table id="entryTable">
+    <columns>
+     <Column>
+            <Text text="Emp ID"/>
+        </Column>
+      <Column>
+            <Text text="S.L NO"/>
+        </Column>
+        <Column>
+            <Text text="Date"/>
+        </Column>
+        <Column>
+            <Text text="No.Hour"/>
+        </Column>
+        <Column>
+            <Text text="Project"/>
+        </Column>
+        <Column>
+            <Text text="Task"/>
+        </Column>
+        <Column>
+            <Text text="Sub Task"/>
+        </Column>
+        <Column>
+            <Text text="Description"/>
+        </Column>
+        <Column>
+            <Text text="Status"/>
+        </Column>
+        <Column width="70px">
+           <Text text="Actions" />
+      </Column>
+        <Column width="60px">
+           <Text text="" />
+      </Column>
+    </columns>
+</Table>
+			</Page>
+            	<Page
+				id="detailDetail"
+				title="Leave Apply Details"
+				backgroundDesign= "Solid"
+				showNavButton="true"
+				navButtonPress=".onPressDetailBack">
+            
+                <Table id="leaveTable">
+    <columns>
+      
+        <Column>
+            <Text text="SL NO"/>
+        </Column>
+        <Column>
+            <Text text="Type of Leave"/>
+        </Column>
+        <Column>
+            <Text text="From Date"/>
+        </Column>
+        <Column>
+            <Text text="To Date"/>
+        </Column>
+        <Column>
+            <Text id="days" text="No. of Days"/>
+        </Column>
+        <Column>
+            <Text text="Shift" />
+        </Column>
+        <Column>
+            <Text text="Description"/>
+        </Column>
+        <Column width="70px">
+           <Text text="Actions" />
+      </Column>
+       <Column width="60px">
+           <Text text="" />
+      </Column>
+    </columns>
+</Table>
+</Page>
+<Page
+				id="detail2"
+				title="Detail 3 Page"
+				backgroundDesign= "Solid"
+				showNavButton="true"
+				navButtonPress=".onPressDetailBack">
+				<Label text="This is Detail Page3" />
+				<Input/>
+				<Label text="Label 2" />
+				<Input/>
+				<Label text="Label 3" />
+				<Input/>
+				<Label text="Label 4" />
+				<Input/>
+				<Label text="Label 5" />
+				<Input/>
+			</Page>
+        </detailPages>
+        	<masterPages>
+			<Page
+				id="master"
+				title="Our Employees"
+				backgroundDesign= "List">
+				<List id="ListId" items="{empModel>/value}">
+					<StandardListItem title="{empModel>name}" type="Navigation" icon="{empModel>icon}" press=".onPressGoToMaster" />
+                    <!-- <StandardListItem title="Nitin Shubankar Ray" type="Navigation" press=".onPressGoToMaster" />
+                    <StandardListItem title="Janmajay Swain" type="Navigation" press=".onPressGoToMaster" />
+                    <StandardListItem title="Debasis Choudhury" type="Navigation" press=".onPressGoToMaster" />
+                    <StandardListItem title="Suvendu Rout" type="Navigation" press=".onPressGoToMaster" /> -->
+				</List>
+			</Page>
+            <Page
+				id="master2"
+				title="{empModel>/value/name}"
+				backgroundDesign="List"
+				showNavButton="true"
+				navButtonPress=".onPressMasterBack">
+				<List itemPress=".onListItemPress">
+					<items>
+						<StandardListItem title="Task Entry Details" type="Active" custom:to="detail" />
+						<StandardListItem title="Leave Apply Details" type="Active" custom:to="detailDetail" />
+						<StandardListItem title="Employee Details" type="Active" custom:to="detail2" />
+					</items>
+				</List>
+			</Page>
+		</masterPages>
+    </SplitApp>
+</mvc:View>

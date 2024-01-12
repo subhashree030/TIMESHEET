@@ -1,0 +1,408 @@
+/* Enter your custom styles here */
+.sapMITBTab {
+    width: 14rem;
+    display: block;
+}
+.sapMITBFilter .sapMITBText {
+    font-weight: bold;
+    width: 14rem;
+}
+.shellbar{
+    background-color:#bbe1f0 !important ;
+}
+.imgid{
+    width: 106%;
+    height: 100%;
+    margin-left: -4rem
+    }
+    .sapUiMediumMargin {
+        width: 350px;
+        height: 500px;
+        margin: 10px 10px 10px 10px;
+        padding: 10px;
+        /* border: 0px solid #9d9d9d; */
+        box-shadow: 1px 1px 1px 1px rgba(152, 148, 149, 0.9);
+        top: 3rem;
+        z-index: 28;
+        position: fixed;
+        right: 34rem;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        /* background: #fbf4f4c9 !important; */
+        /* background-color: #f5f5f5; */
+    }
+    .sapUiSmallMargin {
+        /* position: absolute;
+        width: 95%;
+        height: 90%; */
+        position: absolute;
+        width: 103%;
+        height: 93%;
+        right: -3rem;
+    }
+    /* .logo{
+        position: absolute;
+        top: -1rem;
+        width: 8rem;
+        right: 10rem;
+        height: 4rem;
+        
+    } */
+    .logo {
+        position: absolute;
+        top: -1rem;
+        width: 5rem;
+        right: 12rem;
+        height: 4rem;
+        /* background: #fbf4f4c9 !important; */
+    }
+    .hclass{
+        height: 0rem;
+        right: -1rem;
+        top: -1rem;
+        /* background: #fbf4f4c9 !important; */
+    }
+    .inptclass{
+        width: 29rem;
+        left: -2rem;
+        height: 5rem;
+        bottom: -2rem;
+        /* background: #fbf4f4c9 !important; */
+    }
+    .sapUiTinyMarginBegin{
+        width: 22rem;
+        left: -4rem;
+        bottom: -1rem;
+    }
+    .OrTextclass{
+        position: absolute;
+        left: 11rem;
+        top: -1rem;
+    
+    }
+    .logo2{
+        width: 2rem;
+    }
+    .fclass{
+        top: -2rem;
+        right: -6rem;
+    
+    }
+    .hclass1{
+        left: 4rem;
+    }
+    .textclass{
+        left: 8rem;
+    }
+    .crtbtnclass{
+        left: 8rem;
+    }
+    .pclass{
+        position: absolute;
+        left: 9rem;
+        top: -4rem;
+       
+    }
+    .textclass5{
+        top: -4rem;
+        right: -6rem;
+        
+    }
+    .appclass{
+        position: absolute;
+        top: -5rem;
+        right: 12rem;
+        color: #3d3c3b;
+        font-family: inherit;
+    }
+    .accclass{
+        color: #3d3c3b;
+        font-family: inherit;
+    
+    }
+    .logo3{
+        position: absolute;
+        width: 14rem;
+        top: -6rem;
+        right: 7rem;
+        /* background: #fbf4f4c9 !important; */
+    }
+    .wishClass {
+        position: absolute !important;
+        font-family: inherit;
+        font-size: xxx-large;
+        top: 21%;
+        right: 41%;
+        color: white;
+        animation: fadeIn 5s;
+    }
+   .HolidayCard{
+    margin-left: 10px;
+   }
+
+   /* //for myentries */
+   /* .vclass{
+    position: absolute;
+    left: 1rem;
+} */
+
+.fsecondclass1{
+    bottom: -1rem;
+
+}
+.myEntriesCard1{
+    padding: 70px;
+}
+.myEntriesVbox1{
+   padding: 3px;
+}
+/* .lclass{
+    font-size: x-large;
+    font-family: emoji;
+} */
+
+/* .btnclass{
+    right: -1rem;
+    width: 3rem;
+} */
+
+/* weather css */
+.weatherCardClass{
+    position: absolute !important;
+    font-family: monospace;
+    /* margin: 10%; */
+    font-size: xx-small;
+    top: 1%;
+    right: 0%;
+        color: white;
+
+        /* 20-10-2023 */
+    background-color: #d2f8f894;
+    
+}
+
+    /* 20-10-2023 */
+    .sapMTB {
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        align-items: center;
+        box-sizing: border-box;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        height: 3rem;
+        padding-right: 0.25rem;
+        background: #ebf3f312;
+    }
+
+    .sapFCard .sapFCardHeader .sapFCardSubtitle {
+        position: relative;
+        font-family: "72","72full",Arial,Helvetica,sans-serif;
+        font-size: .875rem;
+        font-weight: normal;
+        color: #070707;
+        min-height: 1rem;
+        flex-grow: 1;
+    }
+
+    /* 20-10-2023 */
+.sapUiMediumMarginTop {
+    margin-top: -3rem !important;
+}
+
+.sapFCard .sapFCardHeader {
+    position: relative;
+    flex-shrink: 0;
+    justify-content: space-between;
+    background: #10010100;
+    border-bottom: -0.9375rem solid #ccc;
+    z-index: 2;
+    border-radius: 0.25rem 0.25rem 0 0;
+    padding: 1rem;
+    display: flex;
+}
+/* 26-10-2023  changes for Reports*/
+/* 31-10-23 changes */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    height: 100%;
+    /* Ensure it takes up the full height of the Popover */
+}
+
+.invisible-border-button {
+    border: none;
+    outline: none;
+}
+
+.table-data {
+    margin-top: 20px;
+}
+
+.header-size {
+    margin-bottom: 15px;
+}
+/* for forget password */
+/* .forgot-password-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+  } */
+  .forgot-password-container {
+    width: 114%;
+    height: 480px;
+    max-width: 488px;
+    margin: 0 auto;
+    padding: 24px;
+}
+  
+  .forgot-password-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .forgot-password-description {
+    margin-bottom: 16px;
+  }
+  
+  .forgot-password-input {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .forgot-password-button {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+  }
+  .holidayImg{
+    height: 126px;
+    /* width: 308px; */
+    /* margin-left: 169px; */
+    top: 50px;
+}
+.calendarImg{
+     width: 808px;
+     height: 160px;
+}
+.Type02 {
+    background-color:rgb(241, 187, 187) !important;
+  }
+ 
+  /* .DateRangeColor{
+    background-color:rgb(241, 187, 187) !important;
+  } */
+  .publicholiday{
+    background-color: rgba(255, 0, 0, 0.94) !important;
+  }
+  /* .sapUiUnifiedCalendar {
+    background-color: rgba(255, 255, 0, 0.23);
+} */
+.Type03{
+    background-color:  rgb(249, 255, 187) !important;
+}
+ 
+.sapUiCalItemType02>.sapUiCalItemText {
+    background-color:rgb(187, 187, 241)!important;
+    }
+    .sapUiCalItemType01>.sapUiCalItemText {
+        background-color:rgb(241, 187, 187) !important;
+
+        }
+        .sapUiCalItemType03>.sapUiCalItemText {
+            background-color: rgb(249, 255, 187)!important;
+            }
+     
+ .entriesImg{
+   height: 100px;
+   width: 350px;
+   margin-left: 276px;
+        }
+  /* //signupchangess css//           */
+  .signup-password-container {
+    width: 114%;
+    height: 921px;
+    max-width: 488px;
+    margin: 0 auto;
+    padding: 24px;
+}
+  
+  .signup-password-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .signup-password-description {
+    margin-bottom: 16px;
+    font-size: large;
+    font-family: emoji;
+  }
+  
+  .signup-password-input {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .carddetails{
+    margin-left: 5px;
+  }
+  .mainCalendar{
+    /* color: #023047 !important; */
+    /* margin: 5px; */
+    margin-right: 2px;
+  }
+  .mainCalendar{
+  /* .sapFCardNoHeader>.sapFCardContent */
+    background-color :#0064d9 !important; 
+    /* #bbe1f0 */
+    width: 300px;
+    height: 200px;
+  }
+  .dateDetailsText {
+   
+    color:  #ffffff;
+    font-weight: 700;
+    font-size: 120px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   
+}
+.currentdayText{
+    color:  #ffffff;
+   
+    font-size: 30px;
+    font-weight: 300;
+
+   
+}
+.currenttimeText{
+    font-weight: 500;
+    font-size: 20px;
+    color:  #ffffff;
+}
+.dateDetailsTexts{
+    color: rgb(0, 0, 0);
+}
+.vBoxclass{
+
+   margin-top: 50px;
+}
+.calendarHbox{
+    margin-top :20px;
+}
+.legend{
+    margin-top :30px;
+}
+.today{
+    margin-top: 10px;
+    color: #ffffff;
+}

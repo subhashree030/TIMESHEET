@@ -1,0 +1,86 @@
+<mvc:View controllerName="timesheet.com.project1.controller.calendar"
+     xmlns:mvc="sap.ui.core.mvc"
+     displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns:core="sap.ui.core"
+     xmlns:table="sap.ui.table"
+    xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" class="sapUiSizeCompact" xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:layout= "sap.ui.layout"
+ xmlns:me="sap.me" 
+ xmlns:unified="sap.ui.unified">
+ <!-- <ScrollContainer
+		height="600px"
+		vertical="true"
+		focusable="false"> -->
+<HBox>
+   <f:Card  width="300px" class="mainCalendar" height="470px">
+          <!-- <f:header>
+            <card:Header
+                title="My time Entries"
+                subtitle="Up to date yourself"/>
+                <Image src="./Images/icons/calendar.gif" height="126px"/>
+        </f:header> -->
+        <f:content>
+            
+       <VBox class="vBoxclass" alignItems="Center" width="300px">
+          <Image src="https://clipart-library.com/image_gallery2/Calendar-PNG-HD.png" width="100px" height="100px"/>
+            
+               <!-- <Text text="{calendarModel>/currentDay}" class="currentdayText"/> -->
+              <Text text="{calendarModel>/currentDate}" class="dateDetailsText"/>
+               <Text text="{calendarModel>/currentDay}" class="currentdayText"/>
+               <Text text="{calendarModel>/currentTime}" class="currenttimeText"/>
+               <Text id="todayEventText" text="Today Event : {desRequests>description}" class="today"/>
+              <!-- <Text text="hbjjjjjkkefhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjbdbjd" class="dateDetailsTexts"/>
+            <Text text="hbjjjjjkkefhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjbdbjd" class="dateDetailsTexts"/>
+             <Text text="hbjjjjjkkefhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjbdbjd" class="dateDetailsTexts"/>
+              <Text text="hbjjjjjkkefhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjbdbjd" class="dateDetailsTexts"/> -->
+           
+         </VBox>
+        </f:content>
+    </f:Card>
+  <VBox>
+    <f:Card  width="600px" height="470px">
+          <f:header>
+            <card:Header
+                title="My time Entries"
+                subtitle="Up to date yourself"/>
+        </f:header>
+        <f:content>
+        <HBox class="calendarHbox">
+        <!-- <VBox alignItems="right" justifyContent="SpaceBetween" height="100%"> -->
+        <!-- <Image src="./Images/icons/calendar2.png" height="130px" class="calendarImg"/> -->
+            <!-- <l:VerticalLayout class="sapUiSmallMargin">
+            <me:Calendar id="selectionCalendar"
+                     selectionMode="SINGLE"
+                     tapOnDate="onTapOnDate"
+                     changeRange="onChangeRange"
+                     width="718px"/>
+            </l:VerticalLayout> -->
+            	<l:VerticalLayout>
+			<unified:Calendar id="calendar" showCurrentDateButton="true" intervalSelection="false" width="580px" height="500px" select="onDateSelect"/>
+			<unified:CalendarLegend id="legend" class="legend" height="200px" width="300px"/>
+		</l:VerticalLayout>
+    </HBox>
+    <!-- </VBox> -->
+        </f:content>
+    </f:Card>
+  </VBox>
+   <f:Card width="550px" class="HolidayCard" height="470px">
+  <f:header>
+    <card:Header title="List for Holidays" subtitle="Enjoy your holidays"/>
+  </f:header>
+  <f:content>
+    <VBox alignItems="Center" justifyContent="SpaceBetween" height="100%">
+      <!-- Move the image inside the VBox -->
+      <!-- <Image src="./Images/icons/holidays.png" height="126px" class="holidayImg"/> -->
+
+      <ScrollContainer height="410px" vertical="true" width="550px">
+        <List id="holidayList" items="{desRequests>/value}" width="590px">
+          <StandardListItem title="{desRequests>date}" description="{desRequests>description}" icon="{desRequests>imageUrl}">
+          </StandardListItem>
+        </List>
+      </ScrollContainer>
+    </VBox>
+  </f:content>
+</f:Card>
+</HBox>
+<!-- </ScrollContainer> -->
+</mvc:View>

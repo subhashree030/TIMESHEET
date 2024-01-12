@@ -1,0 +1,169 @@
+_schema-version: "3.2"
+ID: mycapproj
+version: 0.0.1
+modules:
+- name: mycapproj-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: mycapproj-uaa
+  - name: mycapproj-db
+  parameters:
+    buildpack: nodejs_buildpack
+    disk-quota: 1024M
+    memory: 256M
+  build-parameters:
+    ignore:
+    - default-*.json
+    - .env
+    - '*node_modules*'
+    - package-lock.json
+- name: mycapproj-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: mycapproj-uaa
+  - name: mycapproj-dest
+  - name: mycapproj-db
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+    disk-quota: 1024M
+    memory: 512M
+  build-parameters:
+    ignore:
+    - default-*.json
+    - .env
+    - '*node_modules*'
+    - package-lock.json
+- name: mycapproj-app
+  type: approuter.nodejs
+  path: app
+  requires:
+  - name: mycapproj-uaa
+  - name: srv-api
+    group: destinations
+    properties:
+      forwardAuthToken: true
+      name: srv
+      timeout: 600000
+      url: ~{srv-url}
+  - name: mycapproj-dest
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  parameters:
+    disk-quota: 1024M
+    memory: 256M
+  build-parameters:
+    ignore:
+    - default-*.json
+    - .env
+    - '*node_modules*'
+    - package-lock.json
+- name: mycapproj-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: mycapproj-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - mytestuimytestui.zip
+      name: mytestuimytestui
+      target-path: resources/
+    - artifacts:
+      - timesheetcomproject1.zip
+      name: timesheetcomproject1
+      target-path: resources/
+- name: mytestuimytestui
+  type: html5
+  path: app/mytestui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: timesheetcomproject1
+  type: html5
+  path: app/project1
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: mycapproj-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: mycapproj-dest
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Description: SAP S/4HANA Cloud Sales Order (A2X)
+            HTML5.DynamicDestination: true
+            Name: mycapproj-API_SALES_ORDER_SRV
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://sandbox.api.sap.com
+            URL.headers.APIKey: <SetValueInCockpit>
+            URL.headers.Application-Interface-Key: <SetValueInCockpit>
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: mycapproj-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+          existing_destinations_policy: ignore
+    service: destination
+    service-plan: lite
+  requires:
+  - name: srv-api
+- name: mycapproj-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+  properties:
+    hdi-service-name: ${service-name}
+- name: mycapproj-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: mycapproj-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install --production
+    - npx -p @sap/cds-dk cds build --production

@@ -1,0 +1,76 @@
+<mvc:View controllerName="timesheet.com.project1.controller.reports"
+     xmlns:mvc="sap.ui.core.mvc"
+     displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns:core="sap.ui.core"
+     xmlns:table="sap.ui.table"
+    xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" class="sapUiSizeCompact" xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:layout= "sap.ui.layout"
+height="100%">
+    <!-- <Image src="https://st.depositphotos.com/1028388/1564/i/450/depositphotos_15640501-stock-photo-skyscrapesr-in-hong-kong.jpg" class="imgid"/> -->
+       <Image src="./Images/icons/homepagescrren1.jpg" class="imgid"/>
+    <Page id="page" >
+        <content>
+         <f:Card class="sapUiMediumMargin" width="414px" >
+        <f:content>
+            <VBox
+                class="sapUiSmallMargin"
+                justifyContent="SpaceBetween">
+                <Image src="Images/icons/m.png"  class="logo"/>
+                <!-- <HBox justifyContent="SpaceBetween" class="hclass" >
+                    <FeedInput placeholder="Phone number,UserName, or email" id="usernameInput" class="inptclass" showIcon="false" growing="true"/>
+                </HBox>
+                <HBox justifyContent="SpaceBetween" class="hclass">
+                    <FeedInput placeholder="Password"  class="inptclass" id="passwordInput" showIcon="false"  growing="true"/>
+                </HBox> -->
+                       <!-- 31-10-23 changes -->
+                       <HBox justifyContent="SpaceBetween" class="hclass" >
+                    <!-- <FeedInput placeholder="Phone number,UserName, or email" id="usernameInput" class="inptclass" showIcon="false" growing="true"/> -->
+                    <Input placeholder="UserID, or Email" id="usernameInput" class="inptclass" width="224%" />
+                </HBox>
+                <HBox justifyContent="SpaceBetween" class="hclass">
+                    <!-- <FeedInput placeholder="Password"  class="inptclass" id="passwordInput" showIcon="false"  growing="true" type="Password"
+                    /> -->
+                    <Input placeholder="Password"  class="inptclass" id="passwordInput" type="Password" width="224%" />
+                   
+
+                </HBox>
+
+                <HBox renderType="Bare" justifyContent="SpaceBetween" class="hclass1">
+                    <Button
+                        text="Login"
+                        press="onloginPress"
+                        type="Emphasized"
+                        class="sapUiTinyMarginBegin" />
+                       
+                </HBox>
+                <Label text="OR" class="OrTextclass"/>
+                <HBox renderType="Bare" justifyContent="SpaceBetween" class="fclass">
+                <Image src="Images/icons/fb_icon_325x325.png"  class="logo2"/>
+                    
+                        <OverflowToolbar style="Clear">
+                        <Link text="Log in with Facebook" textAlign="Center" press="onFacebookLogin"/>
+                        <!-- <Link text="Unlock Account?" textAlign="Center"/> -->
+                        </OverflowToolbar >
+                        <ToolbarSpacer/>
+                </HBox>
+                <Link text="Forget Password?" textAlign="Center" press="onForgetPassword" class="pclass"/>
+                <!-- <Label text="Forget Password?" class="pclass"/> -->
+                <HBox class="textclass5" >
+                <Label text="Don't Have an Account?" class="accclass"/>
+                <Link text="Sign Up" textAlign="Center" press="handlesignupPress"/>
+                </HBox>
+                <Label text="Get the App." class="appclass"/>
+                
+                <Image src="Images/icons/buttons-google-play-apple-store-download-application-isolated-vector-button-mobile-phone-ios-windows-microsoft-android-app-196482624.webp"  class="logo3"/>
+                
+            </VBox>
+        </f:content>
+    </f:Card>
+        </content>
+    </Page>
+
+				
+                   
+      
+             
+         
+</mvc:View>

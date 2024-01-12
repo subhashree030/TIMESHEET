@@ -1,0 +1,862 @@
+<mvc:View controllerName="timesheet.com.project1.controller.reportschart"
+   xmlns="sap.m"
+xmlns:viz="sap.viz.ui5.controls" xmlns:form="sap.ui.layout.form" xmlns:tnt="sap.tnt" xmlns:f="sap.f"
+xmlns:mvc="sap.ui.core.mvc" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+xmlns:card="sap.f.cards"
+xmlns:viz.data="sap.viz.ui5.data" xmlns:core="sap.ui.core" height="100%"
+xmlns:grid="sap.ui.layout.cssgrid"  xmlns:l="sap.ui.layout" xmlns:ux="sap.uxap">
+   <ObjectHeader
+        icon="./Images\icons\download.png"
+        iconDensityAware="false"
+        iconAlt="Denise Smith"
+        imageShape="Circle"
+        responsive="true"
+        title="Denise Smith"
+        intro="Senior Developer"
+        class="sapUiResponsivePadding--header" >
+            <ObjectAttribute title="Email address" text="DeniseSmith@sap.com" active="true" />
+            <ObjectAttribute title="Office Phone" text="+33 6 453 564" />
+            <ObjectAttribute title="Functional Area" text="Development" />
+    </ObjectHeader>
+    
+
+    <f:Card class="reportspageclass" width="100%">
+        <f:content>
+    <ScrollContainer height="100%"
+        width="100%" vertical="true" horizontal="false">
+        <!-- <Title text="Combined Analytics" titleStyle="H3" class="boldTitle sapUiMediumMarginBeginEnd sapUiMediumMarginTop" /> -->
+    <l:BlockLayout>
+         <l:BlockLayoutRow id="alanytic1">
+                    <l:BlockLayoutCell class="sapUiNoContentPadding">
+                        <VBox class="sapUiMediumMarginTop sapUiSmallMarginBegin sapUiLargeMarginEnd">
+                            <!-- <f:GridList id="gridList1" class="sapUiMediumMarginBeginEnd sapUiSmallMarginTop slideInDown">
+                                <f:customLayout>
+                                    <grid:ResponsiveColumnLayout />
+                                </f:customLayout>
+                                <f:GridListItem id="idTicketAnal1" class="special round" type="Active" press="navToAnalytics">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="4" rows="1" />
+                                    </f:layoutData>
+                                    <HBox class="sapUiTinyMarginBottom">
+                                        <core:HTML content='{oFiori>/miniAnalytics}' />
+                                        <VBox width="100%" class="sapUiTinyMarginTop">
+                                            <Title text="Ticket Analytics" level="H4" titleStyle="H4" class="sapUiTinyMargin" wrapping="true" wrappingType="Normal" />
+                                            <Text text="Get an insight on overall tickets and with the help of charts and graph." class="sapUiTinyMarginBegin" />
+                                            <layoutData>
+                                                <FlexItemData growFactor="2" />
+                                            </layoutData>
+                                        </VBox>
+                                    </HBox>
+                                </f:GridListItem>
+                                <f:GridListItem id="ticket1" class="special round" type="Active" press="navToBotAnalytics" visible="true">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="4" rows="1" />
+                                    </f:layoutData>
+                                    <HBox class="sapUiTinyMarginBottom">
+                                        <core:HTML content='{oFiori>/miniNoUsers}' />
+                                        <VBox width="100%" class="sapUiTinyMarginTop">
+                                            <Title text="Bot Analytics" level="H4" titleStyle="H4" class="sapUiTinyMargin" wrapping="true" wrappingType="Normal" />
+                                            <Text text="Get an insights on all the converstaion by Bot" class="sapUiTinyMarginBegin" />
+                                            <layoutData>
+                                                <FlexItemData growFactor="2" />
+                                            </layoutData>
+                                        </VBox>
+                                    </HBox>
+                                </f:GridListItem>
+                            </f:GridList> -->
+
+                            <!-- <Title text="Bot information" titleStyle="H3"
+                                class="boldTitle sapUiMediumMarginTop" /> -->
+                                <f:GridList width="100%" class="sapUiTinyMarginTop">
+                                <f:customLayout>
+                                    <grid:ResponsiveColumnLayout />
+                                </f:customLayout>
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="19" rows="5" />
+                                    </f:layoutData>
+                                   
+                                </f:GridListItem> -->
+                                 <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="19" rows="5" />
+                                    </f:layoutData>
+                                    <!-- <VBox width="100%" class="sapUiSmallMargin" wrap="Wrap">
+                                        <Title text="Bot statistics (Monthly)" />
+                                        <HBox width="100%" class="sapUiSmallMarginTop" wrap="Wrap">
+                                            <HBox wrap="Wrap">
+                                                <VBox class="sapUiLargeMarginEnd" wrap="Wrap">
+                                                    <Label text="Total Participants " design="Bold"
+                                                        class="sapUiTinyMarginTop" />
+                                                    <ObjectNumber id="totalTickets1"
+                                                        class="sapMObjectNumberLarge"
+                                                        number="3"
+                                                       
+                                                        emphasized="true"
+                                                        state="Information" />
+                                                </VBox>
+                                                <VBox class="sapUiLargeMarginEnd" wrap="Wrap">
+                                                    <Label text="Total Conversations" design="Bold"
+                                                        class="sapUiTinyMarginTop" />
+                                                    <ObjectNumber id="open1"
+                                                        class="sapMObjectNumberLarge"
+                                                        number="3"
+                                                      
+                                                        emphasized="true"
+                                                        state="Warning" />
+                                                </VBox>
+                                                <VBox class="sapUiLargeMarginEnd" wrap="Wrap">
+                                                    <Label
+                                                        text="Messages Received by Bot"
+                                                        design="Bold"
+                                                        class="sapUiTinyMarginTop" />
+                                                    <ObjectNumber id="closed1"
+                                                        class="sapMObjectNumberLarge"
+                                                        number="3"
+                                                       
+                                                        emphasized="true"
+                                                        state="Success" />
+                                                </VBox>
+                                                <VBox class="sapUiLargeMarginEnd" wrap="Wrap">
+                                                    <Label
+                                                        text="Messages Sent by Bot"
+                                                        design="Bold"
+                                                        class="sapUiTinyMarginTop" />
+                                                    <ObjectNumber id="inProcess1"
+                                                        class="sapMObjectNumberLarge"
+                                                        number="5"
+                                                        emphasized="true"
+                                                        state="Information" />
+                                                </VBox>
+                                                <VBox class="sapUiLargeMarginEnd" wrap="Wrap">
+                                                    <Label
+                                                        text="% Tickets Saved (Intended Ticket Resolved by Bot) "
+                                                        design="Bold"
+                                                        class="sapUiTinyMarginTop" />
+                                                    <ObjectNumber id="acReq1"
+                                                        class="sapMObjectNumberLarge"
+                                                        number="NaN"
+                                                        emphasized="true"
+                                                        state="Error" />
+                                                </VBox>
+                                            </HBox>
+                                        </HBox>
+                                    </VBox> -->
+                                </f:GridListItem>
+                                 <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="8" rows="5" />
+                                    </f:layoutData>
+                                    <VBox width="100%">
+                                        <Title text="Conversations"
+                                            class="sapUiSmallMargin" />
+                                        <VBox width="100%" id="conversations" class="sapUiSmallMarginEnd" />
+                                    </VBox>
+                                </f:GridListItem> -->
+
+                             <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="8"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut0"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Conversations"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart0'
+                                            minFlexSize="250"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame50"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='line'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{ConverstionLineChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{ConverstionLineChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{ConverstionLineChartModelData>count}"
+                                                                />
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed10'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed10'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                
+
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="11" rows="5" />
+                                    </f:layoutData>
+                                    <VBox>
+                                        <Title text="Most used  Skills"
+                                            class="sapUiSmallMargin" />
+                                        <VBox id="spaceDistro1" class="sapUiSmallMarginTop" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                                <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="9"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+
+                                    <VBox
+                                        id="AnalyticalCarddonut01"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Most used  Skills"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart01'
+                                            minFlexSize="350"
+                                            class="fixFlexVertical"
+                                        >
+                            
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame501"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='donut'
+
+                                                >
+                                                <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{BotdonutchartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="Notification Type"
+                                                                    value="{BotdonutchartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="Count"
+                                                                    value="{BotdonutchartModelData>count}"
+                                                                />
+    
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            uid="size"
+                                                            type="Measure"
+                                                            values="Count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            uid="color"
+                                                            type="Dimension"
+                                                            values="Notification Type"
+                                                            
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex> 
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="6" rows="5" />
+                                    </f:layoutData>
+                                    <VBox>
+                                        <Title text="Participants"
+                                            class="sapUiSmallMargin" />
+                                        <VBox id="participants" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                                <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="8"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut011"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Participants"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart011'
+                                            minFlexSize="250"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame5011"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='column'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{ConverstionLineChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{ConverstionLineChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{ConverstionLineChartModelData>count}"
+                                                                />
+                                                                
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed101'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed101'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="9" rows="5" />
+                                    </f:layoutData>
+                                    <VBox width="100%">
+                                        <Title text="Messages Recieved"
+                                            class="sapUiSmallMargin" />
+                                        <VBox width="100%" id="messagesrecieved" class="sapUiSmallMarginEnd" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                                 <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="9"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut0111"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Messages Recieved"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart0111'
+                                            minFlexSize="350"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame50111"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='line'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{BotcolumChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{BotcolumChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{BotcolumChartModelData>count}"
+                                                                />
+                                                                
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed1011'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed1011'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="6" rows="5" />
+                                    </f:layoutData>
+                                    <VBox width="100%">
+                                        <Title text="Messages Sent"
+                                            class="sapUiSmallMargin" />
+                                        <VBox width="100%" id="messagessent" class="sapUiSmallMarginEnd" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                                <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="8"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut01111"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Messages Sent"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart01111'
+                                            minFlexSize="250"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame501111"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='line'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{BotcolumChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{BotcolumChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{BotcolumChartModelData>count}"
+                                                                />
+                                                                
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed10111'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed10111'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="9" rows="5" />
+                                    </f:layoutData>
+                                    <VBox width="100%">
+                                        <Title text="Total Entities Used"
+                                            class="sapUiSmallMargin" />
+                                        <VBox width="100%" id="totalentities" class="sapUiSmallMarginEnd" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                                    <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="9"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut011111"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Total Entities Used"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart011111'
+                                            minFlexSize="350"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame5011111"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='line'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{BotcolumChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{BotcolumChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{BotcolumChartModelData>count}"
+                                                                />
+                                                                
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed101111'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed101111'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="6" rows="5" />
+                                    </f:layoutData>
+                                    <VBox width="100%">
+                                        <Title text="Total Skills Used"
+                                            class="sapUiSmallMargin" />
+                                        <VBox width="100%" id="totalskills" class="sapUiSmallMarginEnd" />
+                                    </VBox>
+                                </f:GridListItem> -->
+
+                                          <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="8"
+                                        rows="5"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut0111111"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Total Skills Used"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart0111111'
+                                            minFlexSize="250"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame50111111"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='line'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{BotcolumChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{BotcolumChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{BotcolumChartModelData>count}"
+                                                                />
+                                                                
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed1011111'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed1011111'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="9" rows="5" />
+                                    </f:layoutData>
+                                    <VBox width="100%">
+                                        <Title text="Total Intents Used"
+                                            class="sapUiSmallMargin" />
+                                        <VBox width="100%" id="totalintents" class="sapUiSmallMarginEnd" />
+                                    </VBox>
+                                </f:GridListItem> -->
+
+                                            <f:GridListItem class="round">
+                                <f:layoutData>
+                                    <grid:ResponsiveColumnItemLayoutData
+                                        columns="9"
+                                        rows="2"
+                                    />
+                                </f:layoutData>
+                                <VBox>
+                                    
+                                    <VBox
+                                        id="AnalyticalCarddonut01111111"
+                                        class="sapUiSmallMarginTop"
+                                    >
+                                    <Title
+                                            text="Total Intents Used"
+                                            class="sapUiSmallMargin"
+                                        />
+                                        <l:FixFlex
+                                            id='AnalyticalCarddonutChart01111111'
+                                            minFlexSize="350"
+                                        >
+                                            <l:flexContent>
+                                                <viz:VizFrame
+                                                    id="idVizFrame501111111"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizProperties="{title:{ text:''},dataLabel:{visible:true}}"
+                                                    height='100%'
+                                                    width="100%"
+                                                    vizType='line'
+                                                >
+                                                   <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            data="{BotcolumChartModelData>/values}"
+                                                        >
+                                                            <viz.data:dimensions>
+                                                                <viz.data:DimensionDefinition
+                                                                    name="date"
+                                                                    value="{BotcolumChartModelData>date}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    name="count"
+                                                                    value="{BotcolumChartModelData>count}"
+                                                                />
+                                                               
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
+
+
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id='valueAxisFeed10111111'
+                                                            uid="valueAxis"
+                                                            type="Measure"
+                                                            values="count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id='categoryAxisFeed10111111'
+                                                            uid="categoryAxis"
+                                                            type="Dimension"
+                                                            values="date"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </l:flexContent>
+                                        </l:FixFlex>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                                
+                            </f:GridList >
+                            <!-- <Title text="Distribution Based Analytics" visible = 'false'
+                                titleStyle="H3"
+                                class="boldTitle sapUiMediumMarginTop" />
+                            <f:GridList class="sapUiTinyMarginTop" visible = 'false'>
+                                <f:customLayout>
+                                    <grid:ResponsiveColumnLayout />
+                                </f:customLayout> -->
+
+                                <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="5" rows="5" />
+                                    </f:layoutData>
+                                    <VBox>
+                                        <Title text="Distribution by Ticket Type"
+                                            class="sapUiSmallMargin" />
+                                        <VBox id="barchart1" />
+                                    </VBox>
+                                </f:GridListItem>
+                                <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="5" rows="5" />
+                                    </f:layoutData>
+                                    <VBox>
+                                        <Title text="Distribution by Service Category"
+                                            class="sapUiSmallMargin" />
+                                        <VBox id="donutService1" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                               <!-- <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="9" rows="5" />
+                                    </f:layoutData>
+                                    <VBox>
+                                        <Title
+                                            text="Distribution by Sentiment"
+                                            class="sapUiSmallMargin" />
+                                        <VBox id="sentiments1" />
+                                    </VBox>
+                                </f:GridListItem>
+                                <f:GridListItem class="round">
+                                    <f:layoutData>
+                                        <grid:ResponsiveColumnItemLayoutData columns="19" rows="5" />
+                                    </f:layoutData>
+                                    <VBox>
+                                        <Title
+                                            text="Tickets created per month"
+                                            class="sapUiSmallMargin" />
+                                        <VBox id="ticketcreation1" />
+                                    </VBox>
+                                </f:GridListItem> -->
+                            <!-- </f:GridList> -->
+                        </VBox>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+                </l:BlockLayout>
+                </ScrollContainer>
+            </f:content>
+        </f:Card >
+</mvc:View>

@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Popover
+        id="myPopover"
+        contentWidth="200px"
+        contentHeight="200px"
+        placement="Bottom">
+        <VBox class="centered-content">
+        <Avatar initials="UI" src="{/image}" displaySize="XL"></Avatar>
+        <Title text="{/UserName}"/>
+        </VBox >
+         <Bar>
+        <contentMiddle>
+         <Button text="Log Out" icon="sap-icon://log" type="Default" press="onLogOut" class="invisible-border-button"/>
+        </contentMiddle>
+        </Bar>
+        <!-- <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Log Out" icon="sap-icon://log" type="Default" press="back"/>
+            </OverflowToolbar>
+        </footer> -->
+        </Popover>
+</core:FragmentDefinition>

@@ -1,0 +1,113 @@
+<core:FragmentDefinition xmlns="sap.m"  xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog
+        id="editDialog"
+        title="Edit Entry"
+        contentWidth="300px"
+        beginButton="editSaveButton"
+        endButton="editCancelButton"
+    >
+        <!-- <VBox>
+            <HBox>
+                <Label text="No Of Hour" width="100px" />
+                <Input id="editNoOfHours" value="{/noOfHours}" />
+            </HBox>
+            <HBox>
+                <Label text="Project" width="100px" />
+                <Select id="editProject" selectedKey="{/Project}">
+                    <items>
+                        <core:Item text="Project1" key="Project1" />
+                        <core:Item text="Project2" key="Project2" />
+                        <core:Item text="Project3" key="Project3" />
+                    </items>
+                </Select>
+            </HBox>
+            <HBox>
+                <Label text="Task" width="100px" />
+                <Input id="editTask" value="{/Task}" />
+            </HBox>
+            <HBox>
+                <Label text="Sub Task" width="100px" />
+                <Input id="editSubTask" value="{/SubTask}" />
+            </HBox>
+            <HBox>
+                <Label text="Task Description" width="100px" />
+                <TextArea id="editTaskDescription" value="{/TaskDescription}" />
+            </HBox>
+           
+        </VBox>
+           <Bar>
+             <contentRight>
+                 <Button text="Save" type="Emphasized" press="onEditSaveButtonPress"/>
+                 <Button text="Cancel" type="Default"  press="onEditCancelButtonPress"/>
+             </contentRight>
+        </Bar> -->
+          <VBox >
+    <f:SimpleForm 
+            editable="true"
+            layout="ResponsiveGridLayout"
+            title="Edit Your Task Details"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false">
+            <f:content>
+
+                
+               
+               
+
+                <Label text="No Of Hour"/>
+                <Input type="Number" placeholder="Enter No Of Hour" value="{/noOfHours}" id="editNoOfHours"/>
+                <!-- <TimePicker id="editNoOfHours" change="handleChange" input="handleInput" formatPattern="HH:mm:ss"></TimePicker> -->
+
+                  <Label text="Project"/>
+                <Select id="editProject" selectedKey="{/selectedLeaveKey}">
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Project1" key="Project1" />
+                   <core:Item text="Project2" key="Project2" />
+                   <core:Item text="Project3" key="Project3" />
+                </items>
+                </Select>
+
+                <Label text="Task" />
+                <Input id="editTask" placeholder="Enter your Task" value="{/EmpName}" />
+                <Label text="SubTask" />
+                <Input id="editSubTask" placeholder="Enter your ID" value="{/EmpID}">
+                </Input>
+
+               <Label text="Status" />
+               <Select id="editstatus" >
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Waiting" key="Waiting" />
+                   <core:Item text="In Progress" key="In Progress" />
+                   <core:Item text="Completed" key="Completed" />
+                </items>
+                </Select>
+              
+               
+                <Label text="Task Description" />
+                <TextArea id="editTaskDescription" placeholder="Add some extra text"/>
+            </f:content>
+    </f:SimpleForm>
+    <Bar >
+                     <contentRight>
+                             <Button text="Save" type="Emphasized" press="onEditSaveButtonPress"/>
+                 <Button text="Cancel" type="Default"  press="onEditCancelButtonPress"/>
+                     </contentRight>
+                </Bar>
+</VBox>
+    </Dialog>
+</core:FragmentDefinition>

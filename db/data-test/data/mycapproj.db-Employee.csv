@@ -1,0 +1,6 @@
+ID,firstName,lastName,department_ID,department_name
+1,John,Doe,101,HR
+2,Jane,Smith,102,Marketing
+3,Bob,Johnson,101,Engineering
+4,Alice,Williams,103,HR
+5,David,Lee,102,Marketing

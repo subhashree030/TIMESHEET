@@ -1,0 +1,8 @@
+EmpID,slNo,LeaveType,FromDt,ToDt,noOfDates,shift,Description
+BB001,1,Sick leave,1/3/24,1/5/24,3 Days,,Fever
+BB002,1,Personal leave,1/3/24,1/5/24,3 Days,,Emergency
+BB003,1,Personal leave,1/3/24,1/5/24,3 Days,,Medical Issue
+BB005,1,Personal leave,1/3/24,1/5/24,3 Days,,Medical Issue
+
+
+

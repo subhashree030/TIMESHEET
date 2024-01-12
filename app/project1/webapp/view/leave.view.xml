@@ -1,0 +1,183 @@
+<mvc:View controllerName="timesheet.com.project1.controller.leave"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified">
+	<VBox>
+    	<ScrollContainer
+		height="500px"
+		vertical="true"
+		focusable="false">
+
+         <ObjectHeader
+        icon="{/image}"
+        iconDensityAware="false"
+       class="header-size"
+        imageShape="Circle"
+        responsive="true"
+        title="{/UserName}"
+        intro="{/Position}">
+            <ObjectAttribute title="ID" text="{/ID}" active="true" />
+            <ObjectAttribute title="Email" text="{/Email}" />
+    </ObjectHeader>
+           <f:Card width="490px" height="420px" >
+          <f:header>
+            <card:Header
+                title="My Calender"
+                subtitle="Up to date yourself"/>
+        </f:header>
+        <f:content>
+        <!-- <ScrollContainer height="250px" vertical="true" horizontal="false" width="100%"> -->
+            <l:VerticalLayout>
+            <u:Calendar showWeekNumbers="false" width="480px"
+                id="calendar"
+                select="handleCalendarSelect"/>
+                <u:CalendarLegend id="legend" width="480px"/>
+            </l:VerticalLayout>
+             <!-- </ScrollContainer> -->
+        </f:content>
+    </f:Card>
+
+     <f:Card  width="965px" height="420px" class="carddetails">
+          <f:header>
+            <card:Header
+                title="Apply your leaves"
+                subtitle="Enjoy your leaves"/>
+        </f:header>
+        <f:content>
+<VBox >
+    <form:SimpleForm width="950px" height="410px"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"
+         >
+            <form:content >
+                <!-- <Label text="Employee Name" />
+                <Input id="EmpName" placeholder="Enter your name" value="{/UserName}" />
+                <Label text="Employee ID" />
+                <Input id="EmpID" placeholder="Enter your ID" value="{/ID}">
+                </Input> -->
+
+                <Label text="Emp ID" required="true"  />
+               <Input id="Empid" value="{/ID}" liveChange="onFilterChange"/>
+
+
+                 <!-- <Label text="S.L No" required="true" />
+                 <Input id="slNo" placeholder="Seriel No" value=""/> -->
+                
+
+                <Label text="Types of Leave" required="true" />
+                <Select id="leave" selectedKey="{/selectedLeaveKey}" change="onLeaveTypeChange">
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Sick leave" key="Sick leave" />
+                   <core:Item text="Personal leave" key="Personal leave" />
+                   <core:Item text="Casual leave" key="Casual leave"  />
+                   <core:Item text="Maternity/Paternity leave" key="Maternity/Paternity leave" />
+                </items>
+                </Select>
+
+                <Label id="chooseOption" text="Choose an Option" required="true" /> 
+                     <RadioButtonGroup id="casualLeaveType" columns="2" visible="false" selectedIndex="-1" select="onCasualLeaveTypeSelected" itemSelect="onChooseOptionSelect">
+                         <RadioButton id="fullDayRadioButton" text="Full Day" selected="false"/>
+                         <RadioButton id="halfDayRadioButton" text="Half Day" selected="false"/>
+                     </RadioButtonGroup>
+                     <RadioButtonGroup id="shift" columns="2" visible="false" selectedIndex="-1" select="onCasualLeaveTypeSelect" itemSelect="onChooseOptionSelect">
+                         <RadioButton id="firstshiftRadioButton" text="First Shift" selected="false"/>
+                         <RadioButton id="secondshiftRadioButton" text="Second Shift" selected="false"/>
+                     </RadioButtonGroup>
+                
+                <Label id="fromdate" text="From Date" required="true"  />
+                <DatePicker id="fdate" value="{/selectedFromDate}" />
+                <Label text="To Date" required="true" />
+                <DatePicker id="tdate" value="{/selectedToDate}" visible="true" />
+                <Label text="Description"  />
+                <TextArea id="description" placeholder="Add some extra text"/> 
+               
+            </form:content>
+    </form:SimpleForm>
+
+    <!-- <HBox>
+        <RadioButton text="Half Day" groupName="radioGroup" selected="true" />
+        <RadioButton text="Full Day" groupName="radioGroup" />
+    </HBox> -->
+    <Bar >
+                     <contentRight>
+                        <Button text="Apply" type="Emphasized" press="onApplyButtonPress"></Button>
+                        <Button text="Cancel" type="Reject" press="onCancelPress"></Button>
+                     </contentRight>
+    </Bar>
+</VBox>
+ </f:content>
+</f:Card>
+<VBox class="table-data">
+<HBox>
+    <Title text="Remaining Leave:" />
+    <Text id="remainingLeaveText" text="{remainingLeaveModel>/RemainingLeave}" />
+</HBox>
+<Table id="leaveTable"
+        items="{myLeaveModel>/}">
+    <columns>
+      
+        <Column>
+            <Text text="SL NO"/>
+        </Column>
+        <Column>
+            <Text text="Type of Leave"/>
+        </Column>
+        <Column>
+            <Text text="From Date"/>
+        </Column>
+        <Column>
+            <Text text="To Date"/>
+        </Column>
+        <Column>
+            <Text id="days" text="No. of Days"/>
+        </Column>
+        <Column>
+            <Text text="Shift" />
+        </Column>
+        <Column>
+            <Text text="Description"/>
+        </Column>
+        <Column width="70px">
+           <Text text="Actions" />
+      </Column>
+       <Column width="60px">
+           <Text text="" />
+      </Column>
+    </columns>
+    <items>
+        <ColumnListItem>
+            <cells>
+              
+                <Text text="{myLeaveModel>slNo}"/>
+                <Text id="typesOfLeaveText" text="{myLeaveModel>LeaveType}"/>
+                <Text text="{myLeaveModel>FromDt}"/>
+                <Text text="{myLeaveModel>ToDt}"/>
+                <Text text="{myLeaveModel>noOfDates}"/>
+                <Text text="{myLeaveModel>shift}"/>
+                <Text text="{myLeaveModel>Description}"/>
+                  <Button icon="sap-icon://edit" press="onEditMyLeave" />
+                 <Button icon="sap-icon://delete" press="onDeleteMyLeave" />
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
+</VBox>
+
+     </ScrollContainer>
+	</VBox>
+</mvc:View>

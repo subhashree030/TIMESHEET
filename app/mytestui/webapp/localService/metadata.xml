@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Sales" EntityType="CatalogService.Sales"/>
+                <EntitySet Name="VSales" EntityType="CatalogService.VSales"/>
+                <EntitySet Name="SessionInfo" EntityType="CatalogService.SessionInfo"/>
+                <EntitySet Name="SalesOrders" EntityType="CatalogService.SalesOrders"/>
+                <EntitySet Name="empTable" EntityType="CatalogService.empTable"/>
+                <EntitySet Name="Department" EntityType="CatalogService.Department">
+                    <NavigationPropertyBinding Path="employees" Target="Employee"/>
+                </EntitySet>
+                <EntitySet Name="Employee" EntityType="CatalogService.Employee">
+                    <NavigationPropertyBinding Path="department" Target="Department"/>
+                </EntitySet>
+                <EntitySet Name="Books" EntityType="CatalogService.Books">
+                    <NavigationPropertyBinding Path="texts" Target="Books_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="Books_texts"/>
+                </EntitySet>
+                <EntitySet Name="Customer" EntityType="CatalogService.Customer">
+                    <NavigationPropertyBinding Path="orders" Target="Order"/>
+                </EntitySet>
+                <EntitySet Name="Order" EntityType="CatalogService.Order">
+                    <NavigationPropertyBinding Path="items" Target="OrderItem"/>
+                </EntitySet>
+                <EntitySet Name="OrderItem" EntityType="CatalogService.OrderItem"/>
+                <EntitySet Name="Products" EntityType="CatalogService.Products"/>
+                <EntitySet Name="Books_texts" EntityType="CatalogService.Books_texts"/>
+                <FunctionImport Name="topSales" Function="CatalogService.topSales" EntitySet="Sales"/>
+                <FunctionImport Name="getEmployee" Function="CatalogService.getEmployee"/>
+                <FunctionImport Name="getallEmployee" Function="CatalogService.getallEmployee"/>
+                <ActionImport Name="getEmployeeAction" Action="CatalogService.getEmployeeAction"/>
+                <ActionImport Name="createNewEmployeeAction" Action="CatalogService.createNewEmployeeAction"/>
+                <ActionImport Name="updateEmployeeAction" Action="CatalogService.updateEmployeeAction"/>
+                <ActionImport Name="deleteEmployeeAction" Action="CatalogService.deleteEmployeeAction"/>
+            </EntityContainer>
+            <EntityType Name="Sales">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="region" Type="Edm.String" MaxLength="100"/>
+                <Property Name="country" Type="Edm.String" MaxLength="100"/>
+                <Property Name="org" Type="Edm.String" MaxLength="4"/>
+                <Property Name="amount" Type="Edm.Int32"/>
+                <Property Name="comments" Type="Edm.String" MaxLength="100"/>
+                <Property Name="criticality" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="VSales">
+                <Key>
+                    <PropertyRef Name="REGION"/>
+                </Key>
+                <Property Name="REGION" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="AMOUNT" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="SessionInfo">
+                <Key>
+                    <PropertyRef Name="ITEM"/>
+                </Key>
+                <Property Name="ITEM" Type="Edm.String" MaxLength="5000" Nullable="false"/>
+                <Property Name="VALUE" Type="Edm.String" MaxLength="5000"/>
+            </EntityType>
+            <EntityType Name="SalesOrders">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IncotermsLocation1" Type="Edm.String" MaxLength="70"/>
+                <Property Name="TotalNetAmount" Type="Edm.Decimal" Scale="3" Precision="16"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+            <EntityType Name="empTable">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Department">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="employees" Type="Collection(CatalogService.Employee)" Partner="department"/>
+            </EntityType>
+            <EntityType Name="Employee">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="firstName" Type="Edm.String"/>
+                <Property Name="lastName" Type="Edm.String"/>
+                <NavigationProperty Name="department" Type="CatalogService.Department" Partner="employees">
+                    <ReferentialConstraint Property="department_ID" ReferencedProperty="ID"/>
+                    <ReferentialConstraint Property="department_name" ReferencedProperty="name"/>
+                </NavigationProperty>
+                <Property Name="department_ID" Type="Edm.Guid"/>
+                <Property Name="department_name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Books">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="title" Type="Edm.String"/>
+                <Property Name="descr" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(CatalogService.Books_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="CatalogService.Books_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Customer">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="orders" Type="Collection(CatalogService.Order)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Order">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="orderNumber" Type="Edm.Int32"/>
+                <Property Name="customer_ID" Type="Edm.Guid"/>
+                <NavigationProperty Name="items" Type="Collection(CatalogService.OrderItem)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="OrderItem">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="product" Type="Edm.String"/>
+                <Property Name="quantity" Type="Edm.Int32"/>
+                <Property Name="order_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="Products">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="100"/>
+                <Property Name="price" Type="Edm.Decimal" Scale="2" Precision="15"/>
+                <Property Name="description" Type="Edm.String" MaxLength="255"/>
+                <Property Name="category" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="Books_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="title" Type="Edm.String"/>
+                <Property Name="descr" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="userScopes">
+                <Property Name="identified" Type="Edm.Boolean"/>
+                <Property Name="authenticated" Type="Edm.Boolean"/>
+                <Property Name="Viewer" Type="Edm.Boolean"/>
+                <Property Name="Admin" Type="Edm.Boolean"/>
+            </ComplexType>
+            <ComplexType Name="userType">
+                <Property Name="user" Type="Edm.String"/>
+                <Property Name="locale" Type="Edm.String"/>
+                <Property Name="scopes" Type="CatalogService.userScopes"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_getEmployee">
+                <Property Name="EmpName" Type="Edm.String" MaxLength="100"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_getEmployeeAction">
+                <Property Name="EmpName" Type="Edm.String" MaxLength="100"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_createNewEmployeeAction">
+                <Property Name="EmpName" Type="Edm.String" MaxLength="100"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_updateEmployeeAction">
+                <Property Name="EmpName" Type="Edm.String" MaxLength="100"/>
+            </ComplexType>
+            <ComplexType Name="return_CatalogService_deleteEmployeeAction">
+                <Property Name="EmpName" Type="Edm.String" MaxLength="100"/>
+            </ComplexType>
+            <Function Name="largestOrder" IsBound="true" IsComposable="false">
+                <Parameter Name="in" Type="CatalogService.Sales"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Action Name="boost" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="CatalogService.Sales"/>
+                <ReturnType Type="CatalogService.Sales"/>
+            </Action>
+            <Function Name="topSales" IsBound="false" IsComposable="false">
+                <Parameter Name="amount" Type="Edm.Int32"/>
+                <ReturnType Type="Collection(CatalogService.Sales)" Nullable="false"/>
+            </Function>
+            <Function Name="getEmployee" IsBound="false" IsComposable="false">
+                <Parameter Name="EmpID" Type="Edm.Int32"/>
+                <ReturnType Type="CatalogService.return_CatalogService_getEmployee"/>
+            </Function>
+            <Function Name="getallEmployee" IsBound="false" IsComposable="false">
+                <ReturnType Type="Collection(Edm.String)" Nullable="false"/>
+            </Function>
+            <Action Name="getEmployeeAction" IsBound="false">
+                <Parameter Name="EmpID" Type="Edm.Int32"/>
+                <ReturnType Type="CatalogService.return_CatalogService_getEmployeeAction"/>
+            </Action>
+            <Action Name="createNewEmployeeAction" IsBound="false">
+                <Parameter Name="EmpID" Type="Edm.Int32"/>
+                <Parameter Name="EmpName" Type="Edm.String"/>
+                <ReturnType Type="CatalogService.return_CatalogService_createNewEmployeeAction"/>
+            </Action>
+            <Action Name="updateEmployeeAction" IsBound="false">
+                <Parameter Name="EmpID" Type="Edm.Int32"/>
+                <Parameter Name="EmpName" Type="Edm.String"/>
+                <ReturnType Type="CatalogService.return_CatalogService_updateEmployeeAction"/>
+            </Action>
+            <Action Name="deleteEmployeeAction" IsBound="false">
+                <Parameter Name="EmpID" Type="Edm.Int32"/>
+                <Parameter Name="EmpName" Type="Edm.String"/>
+                <ReturnType Type="CatalogService.return_CatalogService_deleteEmployeeAction"/>
+            </Action>
+            <Annotations Target="CatalogService.EntityContainer/VSales">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.EntityContainer/SessionInfo">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.EntityContainer/SalesOrders">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.Books_texts/locale">
+                <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                </Annotations>
+            </Schema>
+        </edmx:DataServices>
+    </edmx:Edmx>

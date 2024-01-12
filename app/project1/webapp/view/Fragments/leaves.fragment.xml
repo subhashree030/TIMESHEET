@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+        xmlns:core="sap.ui.core">
+    <Dialog
+        id="editDialogbox"
+        title="Edit your leave"
+        contentWidth="400px"
+        beginButton="editSaveButton"
+        endButton="editCancelButton">
+        <f:SimpleForm
+                id="leaveEditForm"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                singleContainerFullSize="false">
+         <Label text="Types of Leave"/>
+                <Select id="leaveedit" selectedKey="{/selectedLeaveKey}" change="onLeaveTypeChanges">
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Sick leave" key="Sick leave" />
+                   <core:Item text="Personal leave" key="Personal leave" />
+                   <core:Item text="Casual leave" key="Casual leave"  />
+                   <core:Item text="Maternity/Paternity leave" key="Maternity/Paternity leave" />
+                </items>
+                </Select>
+
+                <Label id="chooseOptions" text="Choose an Option" required="true" /> 
+                     <RadioButtonGroup id="casualLeaveTypes" columns="2" visible="false" selectedIndex="-1" select="onCasualLeaveTypeSelecteds" itemSelect="onChooseOptionSelect">
+                         <RadioButton id="fullDayRadioButtons" text="Full Day" selected="false"/>
+                         <RadioButton id="halfDayRadioButtons" text="Half Day" selected="false"/>
+                     </RadioButtonGroup>
+                     <RadioButtonGroup id="shifts" columns="2" visible="false" selectedIndex="-1" select="onCasualLeaveTypeSelect" itemSelect="onChooseOptionSelect">
+                         <RadioButton id="firstshiftRadioButtons" text="First Shift" selected="false"/>
+                         <RadioButton id="secondshiftRadioButtons" text="Second Shift" selected="false"/>
+                     </RadioButtonGroup>
+
+                <Label id="Fromdate" text="From Date" />
+                <DatePicker id="startdate" value="{/selectedFromDate}" />
+                <Label text="To Date"/>
+                <DatePicker id="enddate" value="{/selectedToDate}" visible="{/isToDateVisible}" />
+                <Label text="Description" />
+                <TextArea id="descriptions" placeholder="Add some extra text"/>
+        </f:SimpleForm>
+        <Bar>
+             <contentRight>
+                 <Button text="Save" type="Emphasized" press="onEditSaveButtonPress"/>
+                 <Button text="Cancel" type="Default" press="onEditCancelButtonPress"/>
+             </contentRight>
+        </Bar>
+    </Dialog>
+</core:FragmentDefinition>

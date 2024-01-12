@@ -1,0 +1,51 @@
+<mvc:View controllerName="mytestui..mytestui.controller.List"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+	  xmlns:f="sap.f"
+	>
+    <Page id="page" title="{i18n>title}">
+    	<!-- <List id="list" items="{products>/ProductCollection}" >
+    <items>
+        <StandardListItem
+         
+            title="{products>Name}"
+            description="{products>ProductId}"
+             press="onListItemPress"
+             navigated="true"
+             selected="true"
+             	type="Navigation"
+            />
+    </items>
+</List> -->
+
+
+      <Table id="employeeTable" items="{empSetModel>/employees}">
+    <columns>
+      <Column>
+        <Text text="ID"/>
+      </Column>
+      <Column>
+        <Text text="Name"/>
+      </Column>
+      <Column>
+        <Text text="Position"/>
+      </Column>
+      <Column>
+        <Text text="Department"/>
+      </Column>
+    </columns>
+    <items>
+      <ColumnListItem>
+        <cells>
+          <Text text="{empSetModel>id}"/>
+          <Text text="{empSetModel>name}"/>
+          <Text text="{empSetModel>position}"/>
+          <Text text="{empSetModel>department}"/>
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
+
+   
+    </Page>
+</mvc:View>

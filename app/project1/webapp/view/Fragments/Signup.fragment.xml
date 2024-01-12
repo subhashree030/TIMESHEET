@@ -1,0 +1,142 @@
+<core:FragmentDefinition xmlns="sap.m"  xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    >
+    <Dialog
+        id="signupDialog"
+        title=""
+        contentWidth="600px"
+        beginButton="editSaveButton"
+        endButton="editCancelButton"
+    >
+    <VBox class="signup-password-container">
+     <Image
+     src="Images\icons\360_F_558068185_sZmfyrWuzHTfzLdwJuj1ALQcBtbKAtbA.jpg"
+     alt="Forgot Password"
+     width="209px"   
+     class="signup-password-image"
+   />
+ 
+         <Label text="SignUp Your Details?" class="signup-password-title"/>
+  <HBox>
+   <Label required="true"/>
+   <Text text="Employee Details" class="signup-password-description" required="true"/>
+   </HBox>
+  
+    <Input
+    required="true"
+     placeholder="ID"
+     id="inputid"
+     type="Text"
+     class="signup-password-input"
+     
+   />
+    <Input
+     placeholder="First Name"
+     id="inputfname"
+     type="Text"
+     class="signup-password-input"
+     required="true"
+   />
+    <Input
+     placeholder="Last Name"
+     id="inputlname"
+     type="Text"
+     class="signup-password-input"
+     required="true"
+   />
+   <Input
+     placeholder="Password"
+     id="inputpword"
+     type="Password"
+     class="signup-password-input"
+     required="true"
+   />
+   <Input
+   placeholder="Position"
+   id="inputposition"
+   type="Text"
+   class="signup-password-input"
+ />
+ <Text text="Address Details" class="signup-password-description" />
+ <Input
+   placeholder="Address"
+   id="inputadsname"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="Street No"
+   id="inputadsstreet"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="ZIP Code and City"
+   id="inputzip"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="Country"
+   id="inputcountry"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Text text="Contact Details" class="signup-password-description" />
+ <Input
+   placeholder="Email Address"
+   id="inputemail"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="Twitter accounts"
+   id="inputtwitter"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="Telephone no"
+   id="inputtelno"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="SMS"
+   id="inputsms"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="Mobile no "
+   id="inputmobno"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+ <Input
+   placeholder="Image Path"
+   id="inputimagepath"
+   type="Text"
+   class="signup-password-input"
+   
+ />
+
+    </VBox>
+    <Bar >
+        <contentRight>
+                <Button text="Save" type="Emphasized" icon="sap-icon://save" press="onsignupSaveButtonPress"/>
+                <Button text="Cancel" type="Default"  icon="sap-icon://cancel" press="onsignupCancelButtonPress"/>
+        </contentRight>
+   </Bar>
+    </Dialog>
+</core:FragmentDefinition>

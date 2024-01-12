@@ -1,0 +1,146 @@
+<mvc:View controllerName="timesheet.com.project1.controller.leave"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified">
+	<VBox>
+    	<ScrollContainer
+		height="500px"
+		vertical="true"
+		focusable="false">
+
+         <ObjectHeader
+        icon="{/image}"
+        iconDensityAware="false"
+       class="header-size"
+        imageShape="Circle"
+        responsive="true"
+        title="{/UserName}"
+        intro="{/Position}">
+            <ObjectAttribute title="ID" text="{/ID}" active="true" />
+            <ObjectAttribute title="Email" text="{/Email}" />
+    </ObjectHeader>
+           <f:Card width="490px" height="320px" >
+          <f:header>
+            <card:Header
+                title="My Calender"
+                subtitle="Up to date yourself"/>
+        </f:header>
+        <f:content>
+        <ScrollContainer height="250px" vertical="true" horizontal="false" width="100%">
+            <l:VerticalLayout>
+            <u:Calendar showWeekNumbers="false" width="480px"
+                id="calendar"
+                select="handleCalendarSelect"/>
+                <u:CalendarLegend id="legend1" width="480px"/>
+            </l:VerticalLayout>
+             </ScrollContainer>
+        </f:content>
+    </f:Card>
+
+     <f:Card  width="965px" height="320px">
+          <f:header>
+            <card:Header
+                title="Apply your leaves"
+                subtitle="Enjoy your leaves"/>
+        </f:header>
+        <f:content>
+<VBox >
+    <form:SimpleForm width="950px"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false">
+            <form:content>
+                <!-- <Label text="Employee Name" />
+                <Input id="EmpName" placeholder="Enter your name" value="{/UserName}" />
+                <Label text="Employee ID" />
+                <Input id="EmpID" placeholder="Enter your ID" value="{/ID}">
+                </Input> -->
+                 <Label text="S.L No" />
+                <Input id="slNo" placeholder="Seriel No" value="" />
+                
+
+                <Label text="Types of Leave"/>
+                <Select id="leave" selectedKey="{/selectedLeaveKey}">
+                <items>
+                   <core:Item text="Select" key="Select" />
+                   <core:Item text="Sick leave" key="Sick leave" />
+                   <core:Item text="Personal leave" key="Personal leave" />
+                   <core:Item text="Maternity/Paternity leave" key="Maternity/Paternity leave" />
+                </items>
+                </Select>
+                <Label text="From Date" />
+                <DatePicker id="fdate" value="{/selectedFromDate}" />
+                <Label text="To Date"/>
+                <DatePicker id="tdate" value="{/selectedToDate}" />
+                <Label text="Description" />
+                <TextArea id="description" placeholder="Add some extra text"/>
+            </form:content>
+    </form:SimpleForm>
+    <Bar >
+                     <contentRight>
+                        <Button text="Apply" type="Emphasized" press="onApplyButtonPress"></Button>
+                        <Button text="Cancel" type="Reject" press="onCancelPress"></Button>
+                     </contentRight>
+    </Bar>
+</VBox>
+ </f:content>
+</f:Card>
+<VBox class="table-data">
+<Table id="leaveTable" items="{myLeaveModel>/value}">
+    <columns>
+      
+        <Column>
+            <Text text="SL NO"/>
+        </Column>
+        <Column>
+            <Text text="Type of Leave"/>
+        </Column>
+        <Column>
+            <Text text="From Date"/>
+        </Column>
+        <Column>
+            <Text text="To Date"/>
+        </Column>
+        <Column>
+            <Text text="Description"/>
+        </Column>
+        <Column width="60px">
+           <Text text="" />
+      </Column>
+       <Column width="60px">
+           <Text text="" />
+      </Column>
+    </columns>
+    <items>
+        <ColumnListItem>
+            <cells>
+              
+                <Text text="{myLeaveModel>slNo}"/>
+                <Text text="{myLeaveModel>LeaveType}"/>
+                <Text text="{myLeaveModel>FromDt}"/>
+                <Text text="{myLeaveModel>ToDt}"/>
+                <Text text="{myLeaveModel>Description}"/>
+                  <Button icon="sap-icon://edit" press="onEditMyLeaves" />
+                 <Button icon="sap-icon://delete" press="onDeleteMyEntries" />
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
+</VBox>
+
+     </ScrollContainer>
+	</VBox>
+</mvc:View>

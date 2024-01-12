@@ -1,0 +1,262 @@
+<mvc:View controllerName="timesheet.com.project1.controller.EmployeeDetails"
+     xmlns:mvc="sap.ui.core.mvc"
+     displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns:core="sap.ui.core"
+     xmlns:table="sap.ui.table"
+    xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" class="sapUiSizeCompact" xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:layout= "sap.ui.layout"
+ xmlns:unified="sap.ui.unified" 
+height="100%"
+
+
+
+        xmlns:me="sap.me" 
+       
+       >
+
+				
+ <f:ShellBar
+                id="sapFShellBarSample"
+                class="shellbar"
+                title="Badge Time"
+                secondTitle="Status Vibes"
+                homeIcon="./Images/icons/Badgebytes.png"
+                showNavButton="true"
+                showNotifications="true"
+                notificationsNumber="2"
+                navButtonPressed="onClickNav"
+                >
+                <f:profile>
+                    <Avatar initials="UI" src="{/image}" press="handlePopoverPress" ariaHasPopup="Dialog" displaySize="L"/>
+                </f:profile>
+        </f:ShellBar>
+     
+                        <IconTabBar class="sapUiResponsiveContentPadding" upperCase="true" id="idIcobars" select="onIconTabBarSelect" width="auto" >
+
+                            <items>
+                            	
+                                          <IconTabFilter text="My Details" visible="{= ${oUserPermissionModel>/basicSetting}}" icon="./Images/icons/employees.jpg" key="Dates" id="myDetailsFilter" >
+                                       
+                                            	<!-- <f:Card class="sapUiSmallMargin" width="99rem" height="37rem">
+                                                <f:content> -->
+
+                                                <!-- weather card start-->
+                                                	<VBox>
+    	<ScrollContainer
+		height="500px"
+		vertical="true"
+		focusable="false">
+                                                 <f:Card class="weatherCardClass" width="270px" height="214px">
+		<f:header>
+			 <card:Header id="date"
+				title="{weather>/name},Odisha 751001"
+				subtitle="{weather>/weather/0/main}"
+                
+				/>
+                
+		</f:header> 
+          
+        	<f:content class="weatherContent">
+            
+            		<OverflowToolbar class="sapUiMediumMarginTop" height="12rem">
+			 <Image src="./Images/icons/weather.png" alt="Example picture of weather" width="20%" />
+                <Text text="{weather>/main/temp}" id="temp"/>
+            <l:VerticalLayout>
+               <HBox >
+                  <Text text="Wind Speed::"/>
+                  <Text text="{weather>/wind/speed}"/>
+               </HBox>
+               <HBox >
+                  <Text text="Humidity::"/>
+                  <Text text="{weather>/main/humidity}"/>
+               </HBox>             
+               </l:VerticalLayout>
+		</OverflowToolbar>
+            
+            	</f:content>
+               
+        </f:Card>
+                                                  
+                                                <!-- weather card end-->
+                
+                                                <Image src="./Images/icons/corporate.avif" height="20rem" width="100%" class="empdetailsclass"/>
+                                                 <Text class="wishClass" text="{
+                path: 'dateModel>/dtValue',
+                type: 'sap.ui.model.type.DateTime',
+                formatOptions: {
+                    pattern: 'HH:mm a'
+                },
+                formatter: '.formatter.statusText'
+                
+                }" />
+                                                     	<VBox class="myDetailsAdsVbox">
+
+                                                          <ObjectHeader
+        icon="{/image}"
+        iconDensityAware="false"
+       
+        imageShape="Circle"
+        responsive="true"
+        title="{/UserName}"
+        intro="{/Position}"
+        class="sapUiResponsivePadding--header" >
+            <ObjectAttribute title="ID" text="{/ID}" active="true" />
+            <ObjectAttribute title="Email" text="{/Email}" />
+    </ObjectHeader>
+		<form:SimpleForm id="SimpleFormDisplayColumn_oneGroup234"
+			editable="false"
+			layout="ColumnLayout"
+			title="Login Details"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+			>
+			<form:content>
+            <Label text="Login Date" />
+				<Text text="" id="loginDate" />
+
+				<!-- <Label text="ID" />
+				<Text id="ID" text="{/ID}" /> -->
+				
+				 <Label text="Login Time" />
+				<Text text="" id="loginTime" />
+				<Label text="Name" />
+				<Text id="Name" text="{/UserName}" />
+				<!-- <Label text="Password" />
+				<Text id="Password" text="{/Password}" />
+				<Label text="Position" />
+				<Text text="{/Position}" /> -->
+				
+			</form:content>
+		</form:SimpleForm>
+      
+	
+		<form:SimpleForm id="SimpleFormDisplayColumn_oneGroup23"
+			editable="false"
+			layout="ColumnLayout"
+			title="Address"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+            
+			>
+			<form:content>
+				<Label text="Name" />
+				<Text id="nameTexts" text="{/AdsName}" />
+				<Label text="Street/No." />
+				<Text text="{/AdsStreet}" />
+				<Label text="ZIP Code/City" />
+				<Text text="{/ZipCode}" />
+				<Label text="Country" />
+				<Text id="countryTexts" text="{/Country}" />
+				
+			</form:content>
+		</form:SimpleForm>
+
+             <!-- contact Details -->
+             		<form:SimpleForm id="SimpleFormDisplayColumn_oneGroup2"
+			editable="false"
+			layout="ColumnLayout"
+			title="Contacts"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+            
+			>
+			<form:content>
+				<Label text="Twitter" />
+				<Text text="{/Twitter}" />
+				<Label text="Email" />
+				<Text text="{/Email}" />
+				<Label text="Tel." />
+				<Text text="{/Tel}" />
+				<Label text="SMS" />
+				<Text text="{/Sms}" />
+				<Label text="Mobile" />
+				<Text text="{/Mobile}" />
+			</form:content>
+		</form:SimpleForm>
+	</VBox>
+         </ScrollContainer>
+	</VBox>                                  <!-- </f:content>
+                                                </f:Card > -->
+                                    
+                                    <!-- <IconTabFilter text="{i18n>BasicSetting}" icon="sap-icon://settings" key="BasicSettings" id="BasicsSettingsFilter"> -->
+                                </IconTabFilter>
+                                 <IconTabSeparator visible="{= ${oUserPermissionModel>/basicSetting}}"></IconTabSeparator>
+                                <IconTabFilter text="My Calender" visible="{= ${oUserPermissionModel>/basicSetting}}" icon="./Images/icons/datelogo.png" key="Calender" id="dateFilter">
+                                   <!-- calender code start -->
+                                            <mvc:XMLView viewName="timesheet.com.project1.view.calendar"/>    
+                                    <!-- <IconTabFilter text="{i18n>BasicSetting}" icon="sap-icon://settings" key="BasicSettings" id="BasicsSettingsFilter"> -->
+                                </IconTabFilter>
+                              
+                                <IconTabSeparator visible="{= ${oUserPermissionModel>/basicSetting}}"></IconTabSeparator>
+                               
+                                 <!-- Start health Plans-->
+                                <IconTabFilter text="My Plans" visible="{= ${oUserPermissionModel>/healthPlan}}" icon="./Images/icons/plan-28-64.png" key="My Plans" id="myPlansFilter">
+                                    <!-- <IconTabFilter text="Health Plans" icon="sap-icon://insurance-life" key="HealthPlans" id="HealthPlansFilter"> -->
+                                    <!-- visible="{UserInfo>/scopes/Admin}" -->
+                                             <!-- myplans code -->
+                                             
+                                               <mvc:XMLView viewName="timesheet.com.project1.view.myplans"/>    
+                                              
+                                </IconTabFilter>
+                                <!-- Start health Plans-->
+                                <IconTabSeparator visible="{= ${oUserPermissionModel>/healthPlan}}"></IconTabSeparator>
+                                <IconTabFilter text="My Entries" visible="{= ${oUserPermissionModel>/healthPlan}}" icon="./Images/icons/data-entry-1-128.png" key="Reports" id="myEntriesFilter">
+                                <mvc:XMLView viewName="timesheet.com.project1.view.myEntries"/>  
+                                    <!-- <IconTabFilter text="Health Plans" icon="sap-icon://insurance-life" key="HealthPlans" id="HealthPlansFilter"> -->
+                                    <!-- <f:Card class="sapUiSmallMargin" width="99rem" height="37rem">
+                                                <f:content>
+                                                                         <VBox>
+    <HBox>
+      <Label text="Date" />
+      <Input id="dateInput" />
+      <Label text="Task Title" />
+      <Input id="taskTitleInput" />
+      <Label text="Task Description" />
+      <Input id="taskDescriptionInput" />
+      <Label text="Project" />
+      <Input id="projectInput" />
+      <Label text="No. of Hours" />
+      <Input id="hoursInput" />
+      <Button text="Add" press="onAddPress" />
+    </HBox>
+    <VBox id="dynamicForm" />
+  </VBox>
+                                                </f:content>
+                                                </f:Card > -->
+
+          
+                                    <!-- visible="{UserInfo>/scopes/Admin}" -->
+                                </IconTabFilter>
+                                 <IconTabSeparator visible="{= ${oUserPermissionModel>/healthPlan}}"></IconTabSeparator>
+                                <IconTabFilter text="Reports" visible="{= ${oUserPermissionModel>/healthPlan}}" icon="./Images/icons/wd-applet-reports-128.png" key="Reports" id="reportsFilter">
+                                            <mvc:XMLView viewName="timesheet.com.project1.view.reportschart"/>  
+                                </IconTabFilter>
+                                    <IconTabSeparator visible="{= ${oUserPermissionModel>/basicSetting}}"></IconTabSeparator>
+                                <IconTabFilter text="Leave" visible="{= ${oUserPermissionModel>/basicSetting}}" icon="./Images/icons/leave-1.png" key="Leave" id="LeaveFilter">
+                                         <!-- leave code -->
+                                          <mvc:XMLView viewName="timesheet.com.project1.view.leave"/>  
+                                  
+                                </IconTabFilter>
+                                 <!-- <IconTabFilter text="Admin" visible="{= ${oUserPermissionModel>/basicSetting}}" icon="./Images/icons/leave-1.png" key="admin" id="adminFilter">
+                                        
+                                          <mvc:XMLView viewName="timesheet.com.project1.view.admin"/>  
+                                  
+                                </IconTabFilter> -->
+                              
+
+                           	
+                            </items>
+                        </IconTabBar>
+                    
+                        
+                        
+                        
+                  
+
+
+
+
+  
+</mvc:View>

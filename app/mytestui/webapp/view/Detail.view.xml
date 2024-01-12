@@ -1,0 +1,53 @@
+<mvc:View controllerName="mytestui..mytestui.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+      	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	>
+    <Page id="page" title="{i18n>title}">
+        <Text text="{Name}" />
+		    <Text text="hii{Name}" />
+			  <Text text="{Name}" />
+			    <Text text="hii{products>/Name}" />
+				  <Text text="{ProductCollection/Name}" />
+     	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Address"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Name" />
+				<Text id="nameText" text="{products>Name}" />
+                 <Text text="{products>ProductCollection/Name}" />
+				<Label text="ProductId" />
+				<Text text="{products>ProductId}" />
+				<Label text="Price" />
+				<Text text="{Price}" />
+				<Label text="CurrencyCode" />
+				<Text id="countryText" text="{CurrencyCode}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+    <Label text="{products>/ProductCollection/Name}" ></Label>
+
+	
+	
+  
+
+
+    </Page>
+    	</mvc:View>
