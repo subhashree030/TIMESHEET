@@ -5,8 +5,7 @@
         {
             "name": "uaa.user",
             "description": "UAA"
-        }
-        ,
+        },
         {
             "name": "$XSAPPNAME.Viewer",
             "description": "Viewer"
@@ -23,8 +22,7 @@
             "scope-references": [
                 "uaa.user"
             ]
-        }
-        ,
+        },
         {
             "name": "Viewer",
             "description": "Viewer",
@@ -39,8 +37,7 @@
                 "$XSAPPNAME.Admin"
             ]
         }
-    ]
-    ,
+    ],
     "role-collections": [
         {
             "name": "mycapproj_Viewer",
@@ -56,12 +53,12 @@
                 "$XSAPPNAME.Admin"
             ]
         }
-    ]
-    ,
+    ],
     "oauth2-configuration": {
         "token-validity": 3600,
         "redirect-uris": [
             "https://*-mycapproj-app.cfapps.*.hana.ondemand.com/login/callback"
         ]
-    }
+    },
+    "attributes": []
 }
